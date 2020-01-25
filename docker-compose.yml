@@ -1,0 +1,18 @@
+version: "3.2"
+services:
+    db:
+        image: mongo:latest
+        ports:
+        - 27017:27017
+
+    api:
+        container_name: "greenship_api"
+        ports:
+            - 5000:5000
+        volumes:
+            - type: bind
+              source: "./api/"
+              target: "/src/"
+        build:
+            context: "api/"
+            dockerfile: "Dockerfile"
