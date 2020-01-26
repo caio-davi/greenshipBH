@@ -7,8 +7,6 @@ const WeightSelectorComponent = () => {
     alignItems: 'center',
   };
 
-  const [selectedWeight, setWeight] = React.useState(null);
-
   const [selectedWeight, setWeight] = React.useState(0);
 
   return (
