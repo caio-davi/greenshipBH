@@ -44,8 +44,8 @@ const App = () => {
     setSpawnModal(!spawnModal);
   }
 
+  console.log(selectedShip);  
   const handleSelectedShip = (id) => {
-    console.log('here');  
     setSelectedShip(getShipById(id));
     toggleModal();
   }
@@ -54,6 +54,15 @@ const App = () => {
     for(let i in ships){
       if(ships[i].shipNumber === id){
         return ships[i];
+      }
+    }
+  }
+
+  const goToPending = (id) => {
+    toggleModal();
+    for(let i in ships){
+      if(ships[i].shipNumber === id){
+        return ships[i].stage = 1;
       }
     }
   }
@@ -75,6 +84,7 @@ const App = () => {
         spawnModal={spawnModal}
         toggleModal={toggleModal}
         ship={selectedShip}
+        goToPending={goToPending}
       />
       <NavbarComponent />
       <Switch>

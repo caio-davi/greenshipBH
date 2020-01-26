@@ -7,17 +7,20 @@ import {
   MDBModalHeader,
   MDBModalFooter
 } from "mdbreact";
-import { faShip } from "@fortawesome/free-solid-svg-icons";
 
 const ConfirmationModalComponent = (props) => {
   return (
     <MDBContainer>
       <MDBModal isOpen={props.spawnModal}>
         <MDBModalHeader>ConfirmationModalComponent</MDBModalHeader>
-        <MDBModalBody>{ship.owner.name}</MDBModalBody>
+        <MDBModalBody>
+
+          <h2>{props.ship!== false && props.ship.owner.company}</h2>
+          Confirm??
+        </MDBModalBody>
         <MDBModalFooter>
           <MDBBtn color="warning">Close</MDBBtn>
-          <MDBBtn color="default">Save changes</MDBBtn>
+          <MDBBtn color="default" onClick={() => props.goToPending(props.ship.shipNumber)}>Save changes</MDBBtn>
         </MDBModalFooter>
       </MDBModal>
     </MDBContainer>
