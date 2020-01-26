@@ -14,6 +14,9 @@ const DashboardBodyComponent = (props) => {
     let companyRows = [];
     for(let i in props.displayedShips){
       let ship = props.displayedShips[i];
+      // switch (ship.origin.company) {
+      //   case ''
+      // }
       companyRows.push(
         <CompanyRowComponent
           companyLogo={"test.jpg"}

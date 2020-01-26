@@ -9,6 +9,9 @@ const App = () => {
   const [to, setTo] = React.useState('Dallas'); 
   const [ships, setShips] = React.useState('');
   const [displayedShips, setDisplayedShips] = React.useState([]);
+  const backgroundStyle = {
+    backgroundColor: 'green',
+  };
 
   const filterShips = () =>{
     let filteredShips = []
@@ -44,7 +47,7 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <div style={backgroundStyle}>
       <NavbarComponent />
       <DashboardComponent 
         places={places}

@@ -3,6 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeaf } from '@fortawesome/free-solid-svg-icons';
 
 const CompanyRowComponent = (props) => {
+  const bakerHughesPath = 'https://i.imgur.com/meDIWmg.jpg';
+  const tamuPath = 'https://i.imgur.com/sJgdrcz.jpg';
+  const tuPath = 'https://i.imgur.com/tkSy51Y.jpg';
+  
   const companyRowStyle = {
     display: 'flex',
     flexDirection: 'row',
@@ -24,6 +28,7 @@ const CompanyRowComponent = (props) => {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    textAlign: 'center',
     width: '30%',
   };
   const deliveryDateContainerStyle = {
@@ -62,7 +67,7 @@ const CompanyRowComponent = (props) => {
             {props.companyName}
           </div>
           <div style={subheadingStyle}>
-            {props.companyLocationFrom} -> {props.companyLocationTo} 
+            {props.companyLocationFrom} → {props.companyLocationTo} 
           </div>
         </div>
       </div>
