@@ -10,6 +10,10 @@ const DashboardBodyComponent = (props) => {
     width: "82%"
   };
 
+  const tuPath = 'https://i.imgur.com/tkSy51Y.jpg';
+  const tamuPath = 'https://i.imgur.com/sJgdrcz.jpg';
+  const bhPath = 'https://i.imgur.com/meDIWmg.jpg';
+
   const rows = () => {
     let companyRows = [];
     for(let i in props.displayedShips){
@@ -17,16 +21,16 @@ const DashboardBodyComponent = (props) => {
       let logoPath = '';
       switch (ship.owner.company) {
         case 't.u.': {
-          logoPath = 'https://i.imgur.com/tkSy51Y.jpg';
+          logoPath = tuPath;
           break;
         }
         case 'Texas A&M University': {
-          logoPath = 'https://i.imgur.com/sJgdrcz.jpg';
+          logoPath = tamuPath;
           break;
         }
         case 'Baker Hughes':
         default: {
-          logoPath = 'https://i.imgur.com/meDIWmg.jpg';
+          logoPath = bhPath
           break;
         }
       }

@@ -2,6 +2,8 @@ import React from 'react';
 import NavbarComponent from './components/navbar/navbar';
 import DashboardComponent from './components/dashboard/dashboard';
 import ConfirmationModalComponent from './components/modals/confirmationModal/confirmationModal';
+import PendingComponent from './components/pending/pending';
+import ApprovalsComponent from './components/approvals/approvals';
 
 const App = () => {
 
@@ -55,7 +57,7 @@ const App = () => {
         handleToggleModal={handleToggleModal}
       />
       <NavbarComponent />
-      <DashboardComponent 
+      {/* <DashboardComponent 
         places={places}
         from={from}
         handleFrom={handleFrom}
@@ -63,6 +65,9 @@ const App = () => {
         handleTo={handleTo}
         displayedShips={displayedShips}
         />
+    </div> */}
+      {/* <PendingComponent /> */}
+      <ApprovalsComponent />
     </div>
   );
 };
