@@ -6,13 +6,17 @@ const DateSelectorComponent = () => {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    width: '25vw',
   };
 
   const [startDate, setStartDate] = React.useState(new Date());
   
   return (
     <div style={dateSelectorStyle}>
-      <DatePicker placeholderText="Date" selected={startDate} onChange={date => setStartDate(date)} />
+      <span>
+        Date:
+      </span>
+      <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
     </div>
   );
 };

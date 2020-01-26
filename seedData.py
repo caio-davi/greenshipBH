@@ -24,7 +24,7 @@ companies = [
         }
     },
     {
-        'company' : "T.U.",
+        'company' : "t.u.",
         'city' : "Austin",
         'location': {
             'type': "Point",

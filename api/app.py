@@ -16,9 +16,6 @@ def index():
     else:
         raise JsonError(description='Invalid value.')
 
-
-
-
 @app.route('/hello')
 def hello():
     if request.method == 'GET':

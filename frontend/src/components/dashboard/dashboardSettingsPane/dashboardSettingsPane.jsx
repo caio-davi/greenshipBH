@@ -4,7 +4,7 @@ import DateSelectorComponent from "./dateSelector/dateSelector";
 import TypeSelectorComponent from "./typeSelector/typeSelector";
 import WeightSelectorComponent from "./weightSelector/weightSelector";
 
-const DashboardSettingsPaneComponent = () => {
+const DashboardSettingsPaneComponent = (props) => {
   const dashboardSettingsPaneStyle = {
     display: 'flex',
     flexDirection: 'column',
@@ -16,8 +16,8 @@ const DashboardSettingsPaneComponent = () => {
 
   return (
     <div style={dashboardSettingsPaneStyle}>
-      <LocationDropdownComponent title={'From'} />
-      <LocationDropdownComponent title={'To'} />
+      <LocationDropdownComponent {...props} title={'from'} />
+      <LocationDropdownComponent {...props} title={'to'} />
       <DateSelectorComponent />
       <TypeSelectorComponent />
       <WeightSelectorComponent />

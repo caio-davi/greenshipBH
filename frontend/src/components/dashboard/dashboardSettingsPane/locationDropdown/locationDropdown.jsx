@@ -7,18 +7,34 @@ import {
 } from "mdbreact";
 
 const LocationDropdownComponent = (props) => {
+  const buttonContainerStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: '25vw',
+  }
+  const buttonStyle = {
+    width: '180px',
+  }
+
+  const options = () => {
+    let options = [];
+    for(let i in props.places){
+      options.push(
+        <MDBDropdownItem onClick={() => props.title==='from' ? props.setFrom(props.places[i]): props.setTo(props.places[i])} >{props.places[i]}</MDBDropdownItem>
+      )
+    }
+    return options;
+  }
+
   return (
-    <div>
+    <div style={buttonContainerStyle}>
       <MDBDropdown>
-        <MDBDropdownToggle caret color="primary">
+        <MDBDropdownToggle style={buttonStyle} caret color="primary">
           {props.title}
         </MDBDropdownToggle>
         <MDBDropdownMenu basic>
-          <MDBDropdownItem>Action</MDBDropdownItem>
-          <MDBDropdownItem>Another Action</MDBDropdownItem>
-          <MDBDropdownItem>Something else here</MDBDropdownItem>
-          <MDBDropdownItem divider />
-          <MDBDropdownItem>Separated link</MDBDropdownItem>
+          {options()}
         </MDBDropdownMenu>
       </MDBDropdown>
     </div>
