@@ -6,7 +6,7 @@ import {
   MDBNavItem,
   MDBNavLink
 } from "mdbreact";
-import { BrowserRouter as Router } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTruck,
@@ -58,7 +58,6 @@ const NavbarComponent = () => {
   let approvalsActive = false;
 
   return (
-    <Router>
       <MDBNavbar color="default-color" dark expand="md">
         <MDBNavbarNav left>
           <MDBNavbarBrand>
@@ -75,7 +74,7 @@ const NavbarComponent = () => {
         <MDBNavbarNav right>
           <div style={navbarLinksStyle}>
             <MDBNavItem active={schedulingActive}>
-              <MDBNavLink to="scheduling">
+              <MDBNavLink tag={Link} to="/">
                 <div style={faAppenderStyle}>
                   <FontAwesomeIcon icon={faList} />
                   <div style={spacerStyle} />
@@ -84,7 +83,7 @@ const NavbarComponent = () => {
               </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem active={pendingActive}>
-              <MDBNavLink to="pending">
+              <MDBNavLink tag={Link} to="/pending">
                 <div style={faAppenderStyle}>
                   <FontAwesomeIcon icon={faSearch} />
                   <div style={spacerStyle} />
@@ -93,7 +92,7 @@ const NavbarComponent = () => {
               </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem active={approvalsActive}>
-              <MDBNavLink to="approvals">
+              <MDBNavLink tag={Link} to="/approvals">
                 <div style={faAppenderStyle}>
                   <FontAwesomeIcon icon={faCheck} />
                   <div style={spacerStyle} />
@@ -110,7 +109,6 @@ const NavbarComponent = () => {
           </div>
         </MDBNavbarNav>
       </MDBNavbar>
-    </Router>
   );
 };
 
