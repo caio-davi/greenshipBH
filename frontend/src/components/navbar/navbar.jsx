@@ -1,8 +1,20 @@
 import React from "react";
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNav } from "mdbreact";
+import {
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarNav,
+  MDBNavItem,
+  MDBNavLink
+} from "mdbreact";
 import { BrowserRouter as Router } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTruck, faLeaf } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTruck,
+  faLeaf,
+  faCheck,
+  faSearch,
+  faList
+} from "@fortawesome/free-solid-svg-icons";
 
 const NavbarComponent = () => {
   const logoContainerStyle = {
@@ -22,8 +34,28 @@ const NavbarComponent = () => {
     marginLeft: "10px"
   };
   const sustainabilityScoreStyle = {
-    color: 'green',
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    color: "green"
   };
+  const navbarLinksStyle = {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center"
+  };
+  const faAppenderStyle = {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center"
+  };
+  const spacerStyle = {
+    width: "5px"
+  };
+
+  let schedulingActive = true;
+  let pendingActive = false;
+  let approvalsActive = false;
 
   return (
     <Router>
@@ -41,8 +73,39 @@ const NavbarComponent = () => {
           </MDBNavbarBrand>
         </MDBNavbarNav>
         <MDBNavbarNav right>
+          <div style={navbarLinksStyle}>
+            <MDBNavItem active={schedulingActive}>
+              <MDBNavLink to="scheduling">
+                <div style={faAppenderStyle}>
+                  <FontAwesomeIcon icon={faList} />
+                  <div style={spacerStyle} />
+                  Scheduling
+                </div>
+              </MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem active={pendingActive}>
+              <MDBNavLink to="pending">
+                <div style={faAppenderStyle}>
+                  <FontAwesomeIcon icon={faSearch} />
+                  <div style={spacerStyle} />
+                  Pending
+                </div>
+              </MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem active={approvalsActive}>
+              <MDBNavLink to="approvals">
+                <div style={faAppenderStyle}>
+                  <FontAwesomeIcon icon={faCheck} />
+                  <div style={spacerStyle} />
+                  Approvals
+                </div>
+              </MDBNavLink>
+            </MDBNavItem>
+          </div>
+          <div style={spacerStyle} />
           <div style={sustainabilityScoreStyle}>
             <strong>50,000</strong>
+            <div style={spacerStyle} />
             <FontAwesomeIcon icon={faLeaf} />
           </div>
         </MDBNavbarNav>

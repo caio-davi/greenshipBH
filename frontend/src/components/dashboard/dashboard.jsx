@@ -6,8 +6,7 @@ const DashboardComponent = (props) => {
   const dashboardContainerStyle = {
     display: 'flex',
     flexDirection: 'row',
-    minWidth: '100vw',
-    maxWidth: '500',
+    width: '100vw',
     height: '90vh',
   };
 

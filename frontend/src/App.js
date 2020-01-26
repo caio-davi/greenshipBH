@@ -15,9 +15,9 @@ const App = () => {
   const filterShips = () => {
     let filteredShips = []
     for(let i in ships){
-      const ship =ships[i];
-      if(from != '' && ship.origin.city === from){
-        if(to != '' && ship.destination.city === to){
+      const ship = ships[i];
+      if(from !== '' && ship.origin.city === from){
+        if(to !== '' && ship.destination.city === to){
           filteredShips.push(ship);
         }
       }
@@ -35,8 +35,8 @@ const App = () => {
     filterShips();
   }
 
-  const handleToggleModal = () => {
-    toggleSpawnModal(!spawnModal);
+  const handleToggleModal = (val) => {
+    toggleSpawnModal(!val);
   }
 
   React.useEffect(() => {
@@ -52,7 +52,7 @@ const App = () => {
   return (
     <div>
       <ConfirmationModalComponent
-        handleToggleModal={spawnModal}
+        handleToggleModal={handleToggleModal}
       />
       <NavbarComponent />
       <DashboardComponent 
