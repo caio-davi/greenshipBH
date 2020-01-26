@@ -63,6 +63,7 @@ const App = () => {
   return (
     <div>
       <ConfirmationModalComponent
+        spawnModal={spawnModal}
         toggleModal={toggleModal}
       />
       <NavbarComponent />

@@ -36,12 +36,15 @@ const DashboardBodyComponent = (props) => {
       }
       companyRows.push(
         <CompanyRowComponent
+          key={'ComponentRow_'+i}
           companyLogo={logoPath}
           companyName={ship.owner.company}
           companyLocationFrom={ship.origin.city}
           companyLocationTo={ship.destination.city}
           deliveryDate={ship.departureTime}
           sustainabilityScore={ship.sustainabilityScore}
+          shipNumber={ship.shipNumber}
+          handleSelectedShip={props.handleSelectedShip}
       />
       );
     }

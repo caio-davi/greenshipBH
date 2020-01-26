@@ -11,7 +11,7 @@ import {
 const ConfirmationModalComponent = (props) => {
   return (
     <MDBContainer>
-      <MDBModal isOpen={props.modalOpen}>
+      <MDBModal isOpen={props.spawnModal}>
         <MDBModalHeader>ConfirmationModalComponent</MDBModalHeader>
         <MDBModalBody>test</MDBModalBody>
         <MDBModalFooter>
