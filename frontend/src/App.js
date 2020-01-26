@@ -143,6 +143,7 @@ const App = () => {
             handleTo={handleTo}
             displayedShips={displayedShips}
             handleSelectedShip={handleSelectedShip}
+            truckTypes={truckTypes}
             />
           )}
         />

@@ -19,7 +19,7 @@ const DashboardSettingsPaneComponent = (props) => {
       <LocationDropdownComponent {...props} name={'from'} title={props.from === '' ? 'from':props.from} />
       <LocationDropdownComponent {...props} name={'to'} title={props.to === '' ? 'to' : props.to} />
       <DateSelectorComponent />
-      <TypeSelectorComponent />
+      <TypeSelectorComponent {...props} />
       <WeightSelectorComponent />
     </div>
   );

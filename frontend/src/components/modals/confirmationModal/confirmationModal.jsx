@@ -12,10 +12,13 @@ const ConfirmationModalComponent = (props) => {
   return (
     <MDBContainer>
       <MDBModal isOpen={props.spawnModal}>
-        <MDBModalHeader>ConfirmationModalComponent</MDBModalHeader>
+        <MDBModalHeader>Ship Confirmation</MDBModalHeader>
         <MDBModalBody>
 
-          <h2>{props.ship!== false && props.ship.owner.company}</h2>
+          <h1>Owner:<b>{props.ship!== false && props.ship.owner.company}</b></h1>
+          <h4>{props.ship!== false && props.ship.origin.city} to {props.ship!== false &&props.ship.destination.city}</h4>
+          <h4>Departure Date: <b>{props.ship!== false && props.ship.departureTime}</b></h4>
+          <h4>Arrival Date: <b>{props.ship!== false && props.ship.arrivalTime}</b></h4>
           Confirm??
         </MDBModalBody>
         <MDBModalFooter>

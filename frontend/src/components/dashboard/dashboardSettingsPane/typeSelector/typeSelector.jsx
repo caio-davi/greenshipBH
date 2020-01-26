@@ -6,7 +6,7 @@ import {
   MDBDropdownItem
 } from "mdbreact";
 
-const TypeSelectorComponent = () => {
+const TypeSelectorComponent = (props) => {
   const buttonContainerStyle = {
     display: 'flex',
     flexDirection: 'column',
@@ -24,11 +24,9 @@ const TypeSelectorComponent = () => {
           Type
         </MDBDropdownToggle>
         <MDBDropdownMenu basic>
-          <MDBDropdownItem>Action</MDBDropdownItem>
-          <MDBDropdownItem>Another Action</MDBDropdownItem>
-          <MDBDropdownItem>Something else here</MDBDropdownItem>
-          <MDBDropdownItem divider />
-          <MDBDropdownItem>Separated link</MDBDropdownItem>
+          <MDBDropdownItem>{props.truckTypes[0]}</MDBDropdownItem>
+          <MDBDropdownItem>{props.truckTypes[2]}</MDBDropdownItem>
+          <MDBDropdownItem>{props.truckTypes[1]}</MDBDropdownItem>
         </MDBDropdownMenu>
       </MDBDropdown>
     </div>
