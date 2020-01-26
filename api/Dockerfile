@@ -20,7 +20,7 @@ RUN apt-get update && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip install flask flask_json flask_cors requests pymongo 
+RUN pip install flask flask_json flask_cors requests pymongo python-dotenv
 
 RUN dpkg-reconfigure locales && \
     locale-gen C.UTF-8 && \
@@ -28,7 +28,7 @@ RUN dpkg-reconfigure locales && \
 
 ENV LC_ALL C.UTF-8
 
-WORKDIR /source
+WORKDIR /src
 COPY . .
 ENV FLASK_APP app.py
 ENV FLASK_ENV development
