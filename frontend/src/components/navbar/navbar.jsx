@@ -57,6 +57,7 @@ const NavbarComponent = (props) => {
       <MDBNavbar color="default-color" dark expand="md">
         <MDBNavbarNav left>
           <MDBNavbarBrand>
+          <MDBNavLink tag={Link} to="/">
             <div style={logoContainerStyle}>
               <div style={logoStyle}>
                 <FontAwesomeIcon icon={faTruck} />
@@ -65,6 +66,7 @@ const NavbarComponent = (props) => {
                 <strong style={NavbarTitleStyle}>GreenShip</strong>
               </div>
             </div>
+              </MDBNavLink>
           </MDBNavbarBrand>
         </MDBNavbarNav>
         <MDBNavbarNav right>
