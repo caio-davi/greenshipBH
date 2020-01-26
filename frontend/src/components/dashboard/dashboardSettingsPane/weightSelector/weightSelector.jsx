@@ -9,6 +9,8 @@ const WeightSelectorComponent = () => {
 
   const [selectedWeight, setWeight] = React.useState(null);
 
+  const [selectedWeight, setWeight] = React.useState(0);
+
   return (
     <div style={weightSelectorStyle}>
       <input type="number" placeholderText="Weight (Tons)" value={selectedWeight} onChange={(event) => {setWeight(event.target.value);}} />

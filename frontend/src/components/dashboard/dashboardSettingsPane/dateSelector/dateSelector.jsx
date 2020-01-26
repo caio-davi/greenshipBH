@@ -8,7 +8,7 @@ const DateSelectorComponent = () => {
     alignItems: 'center',
   };
 
-  const [startDate, setStartDate] = React.useState(null);
+  const [startDate, setStartDate] = React.useState(new Date());
   
   return (
     <div style={dateSelectorStyle}>
