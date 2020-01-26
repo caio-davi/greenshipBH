@@ -7,10 +7,20 @@ import {
 } from "mdbreact";
 
 const TypeSelectorComponent = () => {
+  const buttonContainerStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: '25vw',
+  }
+  const buttonStyle = {
+    width: '180px',
+  }
+
   return (
-    <div>
+    <div style={buttonContainerStyle}>
       <MDBDropdown>
-        <MDBDropdownToggle caret color="primary">
+        <MDBDropdownToggle style={buttonStyle} caret color="primary">
           Type
         </MDBDropdownToggle>
         <MDBDropdownMenu basic>

@@ -5,13 +5,21 @@ const WeightSelectorComponent = () => {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    width: '25vw',
   };
 
-  const [selectedWeight, setWeight] = React.useState(0);
+  const inputStyle = {
+    width: '180px',
+  }
+
+  const [selectedWeight, setWeight] = React.useState('');
 
   return (
     <div style={weightSelectorStyle}>
-      <input type="number" placeholderText="Weight (Tons)" value={selectedWeight} onChange={(event) => {setWeight(event.target.value);}} />
+      <span>
+        Weight (Tons):
+      </span>
+      <input style={inputStyle} type="number"value={selectedWeight} onChange={(event) => {setWeight(event.target.value);}} />
     </div>
   );
 };
