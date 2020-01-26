@@ -1,10 +1,10 @@
-import React from 'react';
-import NavbarComponent from './components/navbar/navbar';
-import DashboardComponent from './components/dashboard/dashboard';
-import ConfirmationModalComponent from './components/modals/confirmationModal/confirmationModal';
-import { Switch , Route } from "react-router-dom";
-import PendingComponent from './components/pending/pending';
-import ApprovalsComponent from './components/approvals/approvals';
+import React from "react";
+import NavbarComponent from "./components/navbar/navbar";
+import DashboardComponent from "./components/dashboard/dashboard";
+import ConfirmationModalComponent from "./components/modals/confirmationModal/confirmationModal";
+import { Switch, Route } from "react-router-dom";
+import PendingComponent from "./components/pending/pending";
+import ApprovalsComponent from "./components/approvals/approvals";
 
 const App = () => {
 
@@ -30,15 +30,15 @@ const App = () => {
     setDisplayedShips(filteredShips);
   };
 
-  const handleFrom = (place) => {
+  const handleFrom = place => {
     setFrom(place);
     filterShips(place, to);
-  }
-  
-  const handleTo = (place) => {
+  };
+
+  const handleTo = place => {
     setTo(place);
     filterShips(from, place);
-  }
+  };
 
   const toggleModal = () => {
     setSpawnModal(!spawnModal);
@@ -77,7 +77,6 @@ const App = () => {
     fetchData();
   }, []);
 
-
   return (
     <div>
       <ConfirmationModalComponent
@@ -89,7 +88,7 @@ const App = () => {
       <NavbarComponent />
       <Switch>
         <Route
-        exact
+          exact
           path="/"
           render={props => (
             <DashboardComponent 
@@ -101,23 +100,11 @@ const App = () => {
             displayedShips={displayedShips}
             handleSelectedShip={handleSelectedShip}
             />
-            )}
-          />
-        <Route
-          path="/pending"
-          render={props => (
-            <PendingComponent
-            />
-            )}
+          )}
         />
-        <Route
-          path="/approvals"
-          render={props => (
-            <ApprovalsComponent />
-            )}
-        />
+        <Route path="/pending" render={props => <PendingComponent />} />
+        <Route path="/approvals" render={props => <ApprovalsComponent />} />
       </Switch>
-      
     </div>
   );
 };

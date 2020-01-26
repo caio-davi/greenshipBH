@@ -1,12 +1,11 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLeaf } from "@fortawesome/free-solid-svg-icons";
+import { faLeaf, faCheck, faBan } from "@fortawesome/free-solid-svg-icons";
 
 const ApprovalsRowComponent = props => {
   const approvalsRowStyle = {
     display: "flex",
     flexDirection: "row",
-    cursor: "pointer",
     marginTop: "20px",
     width: "95%",
     height: "175px",
@@ -33,7 +32,7 @@ const ApprovalsRowComponent = props => {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    width: "30%"
+    width: "10%"
   };
   const sustainabilityScoreContainerStyle = {
     display: "flex",
@@ -41,6 +40,24 @@ const ApprovalsRowComponent = props => {
     alignItems: "center",
     justifyContent: "center",
     width: "25%"
+  };
+  const approvalLinkStyle = {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "10%",
+    fontSize: "1.4em",
+    color: "green"
+  };
+  const rejectLinkStyle = {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "10%",
+    fontSize: "1.4em",
+    color: "red"
   };
   const headingStyle = {
     fontSize: "1.6em"
@@ -59,29 +76,65 @@ const ApprovalsRowComponent = props => {
     width: "5px"
   };
 
-  return (
-    <div style={approvalsRowStyle}>
-      <div style={logoContainerStyle}>
-        <img src={props.companyLogo} alt={"companyLogo"} />
-      </div>
-      <div style={nameAndLocationContainerStyle}>
-        <div>
-          <div style={headingStyle}>{props.companyName}</div>
-          <div style={subheadingStyle}>
-            {props.companyLocationFrom} → {props.companyLocationTo}
+  if (props.approved) {
+    return (
+      <div style={approvalsRowStyle}>
+        <div style={logoContainerStyle}>
+          <img src={props.companyLogo} alt={"companyLogo"} />
+        </div>
+        <div style={nameAndLocationContainerStyle}>
+          <div>
+            <div style={headingStyle}>{props.companyName}</div>
+            <div style={subheadingStyle}>
+              {props.companyLocationFrom} → {props.companyLocationTo}
+            </div>
           </div>
         </div>
-      </div>
-      <div style={deliveryDateContainerStyle}>{props.deliveryDate}</div>
-      <div style={sustainabilityScoreContainerStyle}>
-        <div style={sustainabilityScoreStyle}>
-          {props.sustainabilityScore}
+        <div style={deliveryDateContainerStyle}>{props.deliveryDate}</div>
+        <div style={sustainabilityScoreContainerStyle}>
+          <div style={sustainabilityScoreStyle}>
+            {props.sustainabilityScore}
+            <div style={spacerStyle} />
+            <FontAwesomeIcon icon={faLeaf} />
+          </div>
+        </div>
+        <div style={approvalLinkStyle}>
+          Approved
           <div style={spacerStyle} />
-          <FontAwesomeIcon icon={faLeaf} />
+          <FontAwesomeIcon icon={faCheck} />
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div style={approvalsRowStyle}>
+        <div style={logoContainerStyle}>
+          <img src={props.companyLogo} alt={"companyLogo"} />
+        </div>
+        <div style={nameAndLocationContainerStyle}>
+          <div>
+            <div style={headingStyle}>{props.companyName}</div>
+            <div style={subheadingStyle}>
+              {props.companyLocationFrom} → {props.companyLocationTo}
+            </div>
+          </div>
+        </div>
+        <div style={deliveryDateContainerStyle}>{props.deliveryDate}</div>
+        <div style={sustainabilityScoreContainerStyle}>
+          <div style={sustainabilityScoreStyle}>
+            {props.sustainabilityScore}
+            <div style={spacerStyle} />
+            <FontAwesomeIcon icon={faLeaf} />
+          </div>
+        </div>
+        <div style={rejectLinkStyle}>
+          Rejected
+          <div style={spacerStyle} />
+          <FontAwesomeIcon icon={faBan} />
+        </div>
+      </div>
+    );
+  }
 };
 
 export default ApprovalsRowComponent;

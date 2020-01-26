@@ -53,10 +53,6 @@ const NavbarComponent = () => {
     width: "5px"
   };
 
-  let schedulingActive = true;
-  let pendingActive = false;
-  let approvalsActive = false;
-
   return (
       <MDBNavbar color="default-color" dark expand="md">
         <MDBNavbarNav left>
@@ -73,7 +69,7 @@ const NavbarComponent = () => {
         </MDBNavbarNav>
         <MDBNavbarNav right>
           <div style={navbarLinksStyle}>
-            <MDBNavItem active={schedulingActive}>
+            <MDBNavItem>
               <MDBNavLink tag={Link} to="/">
                 <div style={faAppenderStyle}>
                   <FontAwesomeIcon icon={faList} />
@@ -82,7 +78,7 @@ const NavbarComponent = () => {
                 </div>
               </MDBNavLink>
             </MDBNavItem>
-            <MDBNavItem active={pendingActive}>
+            <MDBNavItem>
               <MDBNavLink tag={Link} to="/pending">
                 <div style={faAppenderStyle}>
                   <FontAwesomeIcon icon={faSearch} />
@@ -91,7 +87,7 @@ const NavbarComponent = () => {
                 </div>
               </MDBNavLink>
             </MDBNavItem>
-            <MDBNavItem active={approvalsActive}>
+            <MDBNavItem>
               <MDBNavLink tag={Link} to="/approvals">
                 <div style={faAppenderStyle}>
                   <FontAwesomeIcon icon={faCheck} />
