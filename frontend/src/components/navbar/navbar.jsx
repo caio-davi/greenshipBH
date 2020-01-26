@@ -16,7 +16,7 @@ import {
   faList
 } from "@fortawesome/free-solid-svg-icons";
 
-const NavbarComponent = () => {
+const NavbarComponent = (props) => {
   const logoContainerStyle = {
     display: "flex",
     flexDirection: "row"
@@ -99,7 +99,7 @@ const NavbarComponent = () => {
           </div>
           <div style={spacerStyle} />
           <div style={sustainabilityScoreStyle}>
-            <strong>50,000</strong>
+            <strong>{props.userBalance}</strong>
             <div style={spacerStyle} />
             <FontAwesomeIcon icon={faLeaf} />
           </div>

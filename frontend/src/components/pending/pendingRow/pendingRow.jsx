@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLeaf, faCheck, faBan } from "@fortawesome/free-solid-svg-icons";
 
-const PendingRowComponent = props => {
+const PendingRowComponent = (props) => {
   const pendingRowStyle = {
     display: "flex",
     flexDirection: "row",
@@ -98,12 +98,12 @@ const PendingRowComponent = props => {
           <FontAwesomeIcon icon={faLeaf} />
         </div>
       </div>
-      <div style={approvalLinkStyle}>
+      <div style={approvalLinkStyle} onClick={() => props.aprovePending(props.shipNumber)}>
         <FontAwesomeIcon icon={faCheck} />
         <div style={spacerStyle} />
         <div style={textLinkStyle}>Approve</div>
       </div>
-      <div style={rejectLinkStyle}>
+      <div style={rejectLinkStyle}  onClick={() => props.rejectPending(props.shipNumber)}>
         <FontAwesomeIcon icon={faBan} />
         <div style={spacerStyle} />
         <div style={textLinkStyle}>Reject</div>

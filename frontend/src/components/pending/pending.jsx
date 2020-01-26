@@ -44,11 +44,14 @@ const PendingComponent = (props) => {
           companyLocationTo={ship.destination.city}
           deliveryDate={ship.departureTime}
           sustainabilityScore={ship.sustainabilityScore}
+          shipNumber={ship.shipNumber}
+          aprovePending={props.aprovePending}
+          rejectPending={props.rejectPending}
         />
         );
       }
       return companyRows;
-  }
+  };
 
   return (
     <div style={pendingContainerStyle}>

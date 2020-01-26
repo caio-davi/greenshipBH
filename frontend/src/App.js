@@ -16,6 +16,12 @@ const App = () => {
   const [displayedShips, setDisplayedShips] = React.useState([]);
   const [spawnModal, setSpawnModal] = React.useState(false);
   const [selectedShip, setSelectedShip] = React.useState(false); 
+  const [userBalance, setUserBalance] = React.useState(1000);
+  const [updateState, setUpdateState] = React.useState(1);
+
+  const refresh = () => {
+    setUpdateState(updateState+1)
+  };
 
   const filterShips = (place_from, place_to) => {
     let filteredShips = []
@@ -76,7 +82,24 @@ const App = () => {
     return pendings;
   }
 
-  console.log(getPendings());
+  const rejectPending = (id) => {
+    for(let i in ships){
+      if(ships[i].shipNumber === id){
+        return ships[i].stage = 0;
+      }
+    }
+    refresh();
+  }
+  
+  const aprovePending = (id) => {
+    for(let i in ships){
+      if(ships[i].shipNumber === id){
+        setUserBalance(userBalance - ships[i].sustainabilityScore);
+        return ships[i].stage = 2;
+      }
+    }
+    refresh();
+  }
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -96,7 +119,7 @@ const App = () => {
         ship={selectedShip}
         goToPending={goToPending}
       />
-      <NavbarComponent />
+      <NavbarComponent userBalance={userBalance}/>
       <Switch>
         <Route
           exact
@@ -113,7 +136,12 @@ const App = () => {
             />
           )}
         />
-        <Route path="/pending" render={props => <PendingComponent  ships={getPendings()}/>} />
+        <Route path="/pending" render={props => 
+            <PendingComponent  
+                ships={getPendings()}
+                aprovePending={aprovePending}
+                rejectPending={rejectPending}
+            />} />
         <Route path="/approvals" render={props => <ApprovalsComponent />} />
       </Switch>
     </div>
