@@ -21,7 +21,14 @@ const LocationDropdownComponent = (props) => {
     let options = [];
     for(let i in props.places){
       options.push(
-        <MDBDropdownItem key={props.title+'_'+props.places[i]} onClick={() => props.title==='from' ? props.handleFrom(props.places[i]): props.handleTo(props.places[i])} >{props.places[i]}</MDBDropdownItem>
+        <MDBDropdownItem 
+          key={props.title+'_'+props.places[i]} 
+          onClick={() => props.name==='from' ? 
+            props.handleFrom(props.places[i]) :
+            props.handleTo(props.places[i])
+          }>
+          {props.places[i]}
+        </MDBDropdownItem>
       )
     }
     return options;
