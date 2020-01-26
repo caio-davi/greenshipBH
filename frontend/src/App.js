@@ -5,10 +5,10 @@ import DashboardComponent from './components/dashboard/dashboard';
 const App = () => {
 
   const places = ['Austin', 'Houston', 'College Station'];
-
   const [from, setFrom] = React.useState('');
   const [to, setTo] = React.useState(''); 
-  const [ships, setShips] = React.useState([]);
+  const [ships, setShips] = React.useState('');
+  const [displayedShips, setDisplayedShips] = React.useState([]);
 
   React.useEffect(() => {
     const fetchData = async () => {
