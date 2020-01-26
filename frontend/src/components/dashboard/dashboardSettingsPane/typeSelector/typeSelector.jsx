@@ -8,13 +8,13 @@ import {
 
 const TypeSelectorComponent = () => {
   const buttonContainerStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    width: '25vw',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    width: "25vw"
   };
   const buttonStyle = {
-    width: '200px',
+    width: "200px"
   };
 
   return (

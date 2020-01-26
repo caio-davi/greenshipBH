@@ -2,24 +2,29 @@ import React from "react";
 
 const WeightSelectorComponent = () => {
   const weightSelectorStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    width: '25vw',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    width: "25vw"
   };
 
   const inputStyle = {
-    width: '180px',
-  }
+    width: "180px"
+  };
 
   const [selectedWeight, setWeight] = React.useState(0);
 
   return (
     <div style={weightSelectorStyle}>
-      <span>
-        Weight (Tons):
-      </span>
-      <input style={inputStyle} type="number"value={selectedWeight} onChange={(event) => {setWeight(event.target.value);}} />
+      <span>Weight (Tons):</span>
+      <input
+        style={inputStyle}
+        type="number"
+        value={selectedWeight}
+        onChange={event => {
+          setWeight(event.target.value);
+        }}
+      />
     </div>
   );
 };

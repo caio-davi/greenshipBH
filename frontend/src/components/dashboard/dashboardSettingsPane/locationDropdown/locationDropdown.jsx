@@ -6,33 +6,35 @@ import {
   MDBDropdownItem
 } from "mdbreact";
 
-const LocationDropdownComponent = (props) => {
+const LocationDropdownComponent = props => {
   const buttonContainerStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    width: '25vw',
-  }
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    width: "25vw"
+  };
   const buttonStyle = {
-    width: '200px',
-  }
+    width: "200px"
+  };
 
   const options = () => {
     let options = [];
-    for(let i in props.places){
+    for (let i in props.places) {
       options.push(
-        <MDBDropdownItem 
-          key={props.title+'_'+props.places[i]} 
-          onClick={() => props.name==='from' ? 
-            props.handleFrom(props.places[i]) :
-            props.handleTo(props.places[i])
-          }>
+        <MDBDropdownItem
+          key={props.title + "_" + props.places[i]}
+          onClick={() =>
+            props.name === "from"
+              ? props.handleFrom(props.places[i])
+              : props.handleTo(props.places[i])
+          }
+        >
           {props.places[i]}
         </MDBDropdownItem>
-      )
+      );
     }
     return options;
-  }
+  };
 
   return (
     <div style={buttonContainerStyle}>
@@ -40,9 +42,7 @@ const LocationDropdownComponent = (props) => {
         <MDBDropdownToggle style={buttonStyle} caret color="default">
           {props.title}
         </MDBDropdownToggle>
-        <MDBDropdownMenu basic>
-          {options()}
-        </MDBDropdownMenu>
+        <MDBDropdownMenu basic>{options()}</MDBDropdownMenu>
       </MDBDropdown>
     </div>
   );

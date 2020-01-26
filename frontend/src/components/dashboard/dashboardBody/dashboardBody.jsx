@@ -1,7 +1,7 @@
 import React from "react";
 import CompanyRowComponent from "./companyRow/companyRow";
 
-const DashboardBodyComponent = (props) => {
+const DashboardBodyComponent = props => {
   const dashboardBodyStyle = {
     display: "flex",
     flexDirection: "column",
@@ -10,33 +10,33 @@ const DashboardBodyComponent = (props) => {
     width: "82%"
   };
 
-  const tuPath = 'https://i.imgur.com/tkSy51Y.jpg';
-  const tamuPath = 'https://i.imgur.com/sJgdrcz.jpg';
-  const bhPath = 'https://i.imgur.com/meDIWmg.jpg';
+  const tuPath = "https://i.imgur.com/tkSy51Y.jpg";
+  const tamuPath = "https://i.imgur.com/sJgdrcz.jpg";
+  const bhPath = "https://i.imgur.com/meDIWmg.jpg";
 
   const rows = () => {
     let companyRows = [];
-    for(let i in props.displayedShips){
+    for (let i in props.displayedShips) {
       let ship = props.displayedShips[i];
-      let logoPath = '';
+      let logoPath = "";
       switch (ship.owner.company) {
-        case 't.u.': {
+        case "t.u.": {
           logoPath = tuPath;
           break;
         }
-        case 'Texas A&M University': {
+        case "Texas A&M University": {
           logoPath = tamuPath;
           break;
         }
-        case 'Baker Hughes':
+        case "Baker Hughes":
         default: {
-          logoPath = bhPath
+          logoPath = bhPath;
           break;
         }
       }
       companyRows.push(
         <CompanyRowComponent
-          key={'ComponentRow_'+i}
+          key={"ComponentRow_" + i}
           companyLogo={logoPath}
           companyName={ship.owner.company}
           companyLocationFrom={ship.origin.city}
@@ -45,14 +45,14 @@ const DashboardBodyComponent = (props) => {
           sustainabilityScore={ship.sustainabilityScore}
           shipNumber={ship.shipNumber}
           handleSelectedShip={props.handleSelectedShip}
-      />
+        />
       );
     }
     return companyRows;
-  }
+  };
 
   return (
-    <div  className="overflow-auto" style={dashboardBodyStyle}>
+    <div className="overflow-auto" style={dashboardBodyStyle}>
       {rows()}
     </div>
   );

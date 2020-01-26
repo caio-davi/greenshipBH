@@ -54,57 +54,57 @@ const NavbarComponent = () => {
   };
 
   return (
-      <MDBNavbar color="default-color" dark expand="md">
-        <MDBNavbarNav left>
-          <MDBNavbarBrand>
-            <div style={logoContainerStyle}>
-              <div style={logoStyle}>
-                <FontAwesomeIcon icon={faTruck} />
-              </div>
-              <div style={logoNameStyle}>
-                <strong style={NavbarTitleStyle}>GreenShip</strong>
-              </div>
+    <MDBNavbar color="default-color" dark expand="md">
+      <MDBNavbarNav left>
+        <MDBNavbarBrand>
+          <div style={logoContainerStyle}>
+            <div style={logoStyle}>
+              <FontAwesomeIcon icon={faTruck} />
             </div>
-          </MDBNavbarBrand>
-        </MDBNavbarNav>
-        <MDBNavbarNav right>
-          <div style={navbarLinksStyle}>
-            <MDBNavItem>
-              <MDBNavLink tag={Link} to="/">
-                <div style={faAppenderStyle}>
-                  <FontAwesomeIcon icon={faList} />
-                  <div style={spacerStyle} />
-                  Scheduling
-                </div>
-              </MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
-              <MDBNavLink tag={Link} to="/pending">
-                <div style={faAppenderStyle}>
-                  <FontAwesomeIcon icon={faSearch} />
-                  <div style={spacerStyle} />
-                  Pending
-                </div>
-              </MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
-              <MDBNavLink tag={Link} to="/approvals">
-                <div style={faAppenderStyle}>
-                  <FontAwesomeIcon icon={faCheck} />
-                  <div style={spacerStyle} />
-                  Approvals
-                </div>
-              </MDBNavLink>
-            </MDBNavItem>
+            <div style={logoNameStyle}>
+              <strong style={NavbarTitleStyle}>GreenShip</strong>
+            </div>
           </div>
+        </MDBNavbarBrand>
+      </MDBNavbarNav>
+      <MDBNavbarNav right>
+        <div style={navbarLinksStyle}>
+          <MDBNavItem>
+            <MDBNavLink tag={Link} to="/">
+              <div style={faAppenderStyle}>
+                <FontAwesomeIcon icon={faList} />
+                <div style={spacerStyle} />
+                Scheduling
+              </div>
+            </MDBNavLink>
+          </MDBNavItem>
+          <MDBNavItem>
+            <MDBNavLink tag={Link} to="/pending">
+              <div style={faAppenderStyle}>
+                <FontAwesomeIcon icon={faSearch} />
+                <div style={spacerStyle} />
+                Pending
+              </div>
+            </MDBNavLink>
+          </MDBNavItem>
+          <MDBNavItem>
+            <MDBNavLink tag={Link} to="/approvals">
+              <div style={faAppenderStyle}>
+                <FontAwesomeIcon icon={faCheck} />
+                <div style={spacerStyle} />
+                Approvals
+              </div>
+            </MDBNavLink>
+          </MDBNavItem>
+        </div>
+        <div style={spacerStyle} />
+        <div style={sustainabilityScoreStyle}>
+          <strong>50,000</strong>
           <div style={spacerStyle} />
-          <div style={sustainabilityScoreStyle}>
-            <strong>50,000</strong>
-            <div style={spacerStyle} />
-            <FontAwesomeIcon icon={faLeaf} />
-          </div>
-        </MDBNavbarNav>
-      </MDBNavbar>
+          <FontAwesomeIcon icon={faLeaf} />
+        </div>
+      </MDBNavbarNav>
+    </MDBNavbar>
   );
 };
 

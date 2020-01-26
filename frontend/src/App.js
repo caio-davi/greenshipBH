@@ -7,22 +7,31 @@ import PendingComponent from "./components/pending/pending";
 import ApprovalsComponent from "./components/approvals/approvals";
 
 const App = () => {
-
-  const truckTypes = ['Lowboy Trailer', 'Refrigerated Trailers', 'Flatbed Truck']
-  const places = ['Austin', 'College Station', 'Dallas', 'Houston', 'San Antonio'];
-  const [from, setFrom] = React.useState('');
-  const [to, setTo] = React.useState(''); 
-  const [ships, setShips] = React.useState('');
+  const truckTypes = [
+    "Lowboy Trailer",
+    "Refrigerated Trailers",
+    "Flatbed Truck"
+  ];
+  const places = [
+    "Austin",
+    "College Station",
+    "Dallas",
+    "Houston",
+    "San Antonio"
+  ];
+  const [from, setFrom] = React.useState("");
+  const [to, setTo] = React.useState("");
+  const [ships, setShips] = React.useState("");
   const [displayedShips, setDisplayedShips] = React.useState([]);
   const [spawnModal, setSpawnModal] = React.useState(false);
-  const [selectedShip, setSelectedShip] = React.useState(false); 
+  const [selectedShip, setSelectedShip] = React.useState(false);
 
   const filterShips = (place_from, place_to) => {
-    let filteredShips = []
-    for(let i in ships){
-      const ship =ships[i];
-      if(from != '' && ship.origin.city === place_from){
-        if(to != '' && ship.destination.city === place_to){
+    let filteredShips = [];
+    for (let i in ships) {
+      const ship = ships[i];
+      if (from != "" && ship.origin.city === place_from) {
+        if (to != "" && ship.destination.city === place_to) {
           filteredShips.push(ship);
         }
       }
@@ -42,39 +51,39 @@ const App = () => {
 
   const toggleModal = () => {
     setSpawnModal(!spawnModal);
-  }
+  };
 
-  const handleSelectedShip = (id) => {
+  const handleSelectedShip = id => {
     setSelectedShip(getShipById(id));
     toggleModal();
-  }
+  };
 
-  const getShipById = (id) => {
-    for(let i in ships){
-      if(ships[i].shipNumber === id){
+  const getShipById = id => {
+    for (let i in ships) {
+      if (ships[i].shipNumber === id) {
         return ships[i];
       }
     }
-  }
+  };
 
-  const goToPending = (id) => {
+  const goToPending = id => {
     toggleModal();
-    for(let i in ships){
-      if(ships[i].shipNumber === id){
-        return ships[i].stage = 1;
+    for (let i in ships) {
+      if (ships[i].shipNumber === id) {
+        return (ships[i].stage = 1);
       }
     }
-  }
+  };
 
   const getPendings = () => {
     let pendings = [];
-    for(let i in ships){
-      if(ships[i].stage === 1){
+    for (let i in ships) {
+      if (ships[i].stage === 1) {
         pendings.push(ships[i]);
       }
     }
     return pendings;
-  }
+  };
 
   console.log(getPendings());
 
@@ -102,18 +111,21 @@ const App = () => {
           exact
           path="/"
           render={props => (
-            <DashboardComponent 
-            places={places}
-            from={from}
-            handleFrom={handleFrom}
-            to={to}
-            handleTo={handleTo}
-            displayedShips={displayedShips}
-            handleSelectedShip={handleSelectedShip}
+            <DashboardComponent
+              places={places}
+              from={from}
+              handleFrom={handleFrom}
+              to={to}
+              handleTo={handleTo}
+              displayedShips={displayedShips}
+              handleSelectedShip={handleSelectedShip}
             />
           )}
         />
-        <Route path="/pending" render={props => <PendingComponent  ships={getPendings()}/>} />
+        <Route
+          path="/pending"
+          render={props => <PendingComponent ships={getPendings()} />}
+        />
         <Route path="/approvals" render={props => <ApprovalsComponent />} />
       </Switch>
     </div>
