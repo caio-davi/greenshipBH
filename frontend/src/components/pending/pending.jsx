@@ -1,7 +1,7 @@
 import React from "react";
 import PendingRowComponent from "./pendingRow/pendingRow";
 
-const PendingComponent = () => {
+const PendingComponent = (props) => {
   const pendingContainerStyle = {
     display: 'flex',
     flexDirection: 'column',
@@ -16,32 +16,43 @@ const PendingComponent = () => {
   const tamuPath = 'https://i.imgur.com/sJgdrcz.jpg';
   const bhPath = 'https://i.imgur.com/meDIWmg.jpg';
 
+  const rows = () => {
+    let companyRows = [];
+      for(let i in props.ships){
+        let ship = props.ships[i];
+        let logoPath = '';
+        switch (ship.owner.company) {
+          case 't.u.': {
+            logoPath = tuPath;
+            break;
+          }
+          case 'Texas A&M University': {
+            logoPath = tamuPath;
+            break;
+          }
+          case 'Baker Hughes':
+          default: {
+            logoPath = bhPath
+            break;
+          }
+        }
+        companyRows.push(
+          <PendingRowComponent
+          companyLogo={logoPath}
+          companyName={ship.owner.company}
+          companyLocationFrom={ship.origin.city}
+          companyLocationTo={ship.destination.city}
+          deliveryDate={ship.departureTime}
+          sustainabilityScore={ship.sustainabilityScore}
+        />
+        );
+      }
+      return companyRows;
+  }
+
   return (
     <div style={pendingContainerStyle}>
-      <PendingRowComponent
-        companyLogo={tamuPath}
-        companyName={'Texas A&M University'}
-        companyLocationFrom={'San Antonio, TX'}
-        companyLocationTo={'College Station, TX'}
-        deliveryDate={'1/25/20'}
-        sustainabilityScore={'366'}
-      />
-      <PendingRowComponent
-        companyLogo={tuPath}
-        companyName={'t.u.'}
-        companyLocationFrom={'San Antonio, TX'}
-        companyLocationTo={'Austin, TX'}
-        deliveryDate={'1/25/20'}
-        sustainabilityScore={'288'}
-      />
-      <PendingRowComponent
-        companyLogo={bhPath}
-        companyName={'Baker Hughes'}
-        companyLocationFrom={'Dallas, TX'}
-        companyLocationTo={'Houston, TX'}
-        deliveryDate={'1/25/20'}
-        sustainabilityScore={'589'}
-      />
+      {rows()}
     </div>
   );
 };

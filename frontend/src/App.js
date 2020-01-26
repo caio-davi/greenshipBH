@@ -44,7 +44,6 @@ const App = () => {
     setSpawnModal(!spawnModal);
   }
 
-  console.log(selectedShip);  
   const handleSelectedShip = (id) => {
     setSelectedShip(getShipById(id));
     toggleModal();
@@ -66,6 +65,18 @@ const App = () => {
       }
     }
   }
+
+  const getPendings = () => {
+    let pendings = [];
+    for(let i in ships){
+      if(ships[i].stage === 1){
+        pendings.push(ships[i]);
+      }
+    }
+    return pendings;
+  }
+
+  console.log(getPendings());
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -102,7 +113,7 @@ const App = () => {
             />
           )}
         />
-        <Route path="/pending" render={props => <PendingComponent />} />
+        <Route path="/pending" render={props => <PendingComponent  ships={getPendings()}/>} />
         <Route path="/approvals" render={props => <ApprovalsComponent />} />
       </Switch>
     </div>
