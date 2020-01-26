@@ -1,26 +1,31 @@
-import React from 'react';
-import NavbarComponent from './components/navbar/navbar';
-import DashboardComponent from './components/dashboard/dashboard';
-import ConfirmationModalComponent from './components/modals/confirmationModal/confirmationModal';
-import { Switch , Route } from "react-router-dom";
-import PendingComponent from './components/pending/pending';
-import ApprovalsComponent from './components/approvals/approvals';
+import React from "react";
+import NavbarComponent from "./components/navbar/navbar";
+import DashboardComponent from "./components/dashboard/dashboard";
+import ConfirmationModalComponent from "./components/modals/confirmationModal/confirmationModal";
+import { Switch, Route } from "react-router-dom";
+import PendingComponent from "./components/pending/pending";
+import ApprovalsComponent from "./components/approvals/approvals";
 
 const App = () => {
-
-  const places = ['Austin', 'College Station', 'Dallas', 'Houston', 'San Antonio'];
-  const [from, setFrom] = React.useState('');
-  const [to, setTo] = React.useState(''); 
-  const [ships, setShips] = React.useState('');
+  const places = [
+    "Austin",
+    "College Station",
+    "Dallas",
+    "Houston",
+    "San Antonio"
+  ];
+  const [from, setFrom] = React.useState("");
+  const [to, setTo] = React.useState("");
+  const [ships, setShips] = React.useState("");
   const [displayedShips, setDisplayedShips] = React.useState([]);
   const [spawnModal, toggleSpawnModal] = React.useState(false);
- 
-  const filterShips = (place_from, place_to) => {
-    let filteredShips = []
-    for(let i in ships){
-      const ship =ships[i];
-      if(from != '' && ship.origin.city === place_from){
-        if(to != '' && ship.destination.city === place_to){
+
+  const filterShips = (placeFrom, placeTo) => {
+    let filteredShips = [];
+    for (let i in ships) {
+      const ship = ships[i];
+      if (from !== "" && ship.origin.city === placeFrom) {
+        if (to !== "" && ship.destination.city === placeTo) {
           filteredShips.push(ship);
         }
       }
@@ -28,19 +33,19 @@ const App = () => {
     setDisplayedShips(filteredShips);
   };
 
-  const handleFrom = (place) => {
+  const handleFrom = place => {
     setFrom(place);
     filterShips(place, to);
-  }
-  
-  const handleTo = (place) => {
+  };
+
+  const handleTo = place => {
     setTo(place);
     filterShips(from, place);
-  }
+  };
 
-  const handleToggleModal = (val) => {
+  const handleToggleModal = val => {
     toggleSpawnModal(!val);
-  }
+  };
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -52,43 +57,28 @@ const App = () => {
     fetchData();
   }, []);
 
-
   return (
     <div>
-      <ConfirmationModalComponent
-        handleToggleModal={handleToggleModal}
-      />
+      <ConfirmationModalComponent handleToggleModal={handleToggleModal} />
       <NavbarComponent />
       <Switch>
         <Route
-        exact
+          exact
           path="/"
           render={props => (
-            <DashboardComponent 
-            places={places}
-            from={from}
-            handleFrom={handleFrom}
-            to={to}
-            handleTo={handleTo}
-            displayedShips={displayedShips}
+            <DashboardComponent
+              places={places}
+              from={from}
+              handleFrom={handleFrom}
+              to={to}
+              handleTo={handleTo}
+              displayedShips={displayedShips}
             />
-            )}
-          />
-        <Route
-          path="/pending"
-          render={props => (
-            <PendingComponent
-            />
-            )}
+          )}
         />
-        <Route
-          path="/approvals"
-          render={props => (
-            <ApprovalsComponent />
-            )}
-        />
+        <Route path="/pending" render={props => <PendingComponent />} />
+        <Route path="/approvals" render={props => <ApprovalsComponent />} />
       </Switch>
-      
     </div>
   );
 };
