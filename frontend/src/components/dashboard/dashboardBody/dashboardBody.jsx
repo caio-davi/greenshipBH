@@ -17,11 +17,11 @@ const DashboardBodyComponent = (props) => {
       companyRows.push(
         <CompanyRowComponent
           companyLogo={"test.jpg"}
-          companyName={ship.origin.company}
+          companyName={ship.owner.company}
           companyLocationFrom={ship.origin.city}
           companyLocationTo={ship.destination.city}
           deliveryDate={ship.departureTime}
-          sustainabilityScore={ship.distance+ship.duration}
+          sustainabilityScore={ship.sustainabilityScore}
       />
       )
     }
@@ -29,7 +29,7 @@ const DashboardBodyComponent = (props) => {
   }
 
   return (
-    <div style={dashboardBodyStyle}>
+    <div  className="overflow-auto" style={dashboardBodyStyle}>
       {rows()}
     </div>
   );

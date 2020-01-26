@@ -4,9 +4,9 @@ import DashboardComponent from './components/dashboard/dashboard';
 
 const App = () => {
 
-  const places = ['Austin', 'Houston', 'College Station'];
-  const [from, setFrom] = React.useState('');
-  const [to, setTo] = React.useState(''); 
+  const places = ['Austin', 'College Station', 'Dallas', 'Houston', 'San Antonio'];
+  const [from, setFrom] = React.useState('College Station');
+  const [to, setTo] = React.useState('Dallas'); 
   const [ships, setShips] = React.useState('');
   const [displayedShips, setDisplayedShips] = React.useState([]);
 
@@ -15,23 +15,22 @@ const App = () => {
     for(let i in ships){
       const ship =ships[i];
       if(from != '' && ship.origin.city === from){
-        filteredShips.push(ship);
-      }
-      if(to != '' && ship.destination.city === to){
-        filteredShips.push(ship);
+        if(to != '' && ship.destination.city === to){
+          filteredShips.push(ship);
+        }
       }
     }
     setDisplayedShips(filteredShips);
   };
 
   const handleFrom = (place) =>{
-    filterShips();
     setFrom(place);
+    filterShips();
   }
   
   const handleTo = (place) =>{
-    filterShips();
     setTo(place);
+    filterShips();
   }
 
   React.useEffect(() => {
@@ -43,8 +42,6 @@ const App = () => {
     };
     fetchData();
   }, []);
-
-  console.log(displayedShips)
 
   return (
     <div>
