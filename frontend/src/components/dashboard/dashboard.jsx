@@ -8,7 +8,7 @@ const DashboardComponent = (props) => {
     flexDirection: 'row',
     minWidth: '100vw',
     maxWidth: '500',
-    height: '91.5vh',
+    height: '90vh',
   };
 
   return (

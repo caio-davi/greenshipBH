@@ -1,6 +1,7 @@
 import React from 'react';
 import NavbarComponent from './components/navbar/navbar';
 import DashboardComponent from './components/dashboard/dashboard';
+import ConfirmationModalComponent from './components/modals/confirmationModal/confirmationModal';
 
 const App = () => {
 
@@ -9,11 +10,9 @@ const App = () => {
   const [to, setTo] = React.useState('Dallas'); 
   const [ships, setShips] = React.useState('');
   const [displayedShips, setDisplayedShips] = React.useState([]);
-  const backgroundStyle = {
-    backgroundColor: 'green',
-  };
+  const [spawnModal, toggleSpawnModal] = React.useState(false);
 
-  const filterShips = () =>{
+  const filterShips = () => {
     let filteredShips = []
     for(let i in ships){
       const ship =ships[i];
@@ -26,14 +25,18 @@ const App = () => {
     setDisplayedShips(filteredShips);
   };
 
-  const handleFrom = (place) =>{
+  const handleFrom = (place) => {
     setFrom(place);
     filterShips();
   }
   
-  const handleTo = (place) =>{
+  const handleTo = (place) => {
     setTo(place);
     filterShips();
+  }
+
+  const handleToggleModal = () => {
+    toggleSpawnModal(!spawnModal);
   }
 
   React.useEffect(() => {
@@ -47,7 +50,10 @@ const App = () => {
   }, []);
 
   return (
-    <div style={backgroundStyle}>
+    <div>
+      <ConfirmationModalComponent
+        handleToggleModal={spawnModal}
+      />
       <NavbarComponent />
       <DashboardComponent 
         places={places}

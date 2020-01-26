@@ -10,7 +10,7 @@ const DashboardSettingsPaneComponent = (props) => {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-around',
-    backgroundColor: '#EEEEEE',
+    backgroundColor: '#E4F6F5',
     width: '18%',
   };
 

@@ -14,7 +14,7 @@ const LocationDropdownComponent = (props) => {
     width: '25vw',
   }
   const buttonStyle = {
-    width: '180px',
+    width: '200px',
   }
 
   const options = () => {
@@ -37,7 +37,7 @@ const LocationDropdownComponent = (props) => {
   return (
     <div style={buttonContainerStyle}>
       <MDBDropdown>
-        <MDBDropdownToggle style={buttonStyle} caret color="primary">
+        <MDBDropdownToggle style={buttonStyle} caret color="default">
           {props.title}
         </MDBDropdownToggle>
         <MDBDropdownMenu basic>

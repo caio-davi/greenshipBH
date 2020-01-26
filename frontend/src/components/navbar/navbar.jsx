@@ -1,40 +1,51 @@
 import React from "react";
-import { MDBNavbar, MDBNavbarBrand } from "mdbreact";
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNav } from "mdbreact";
 import { BrowserRouter as Router } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTruck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTruck, faLeaf } from "@fortawesome/free-solid-svg-icons";
 
 const NavbarComponent = () => {
   const logoContainerStyle = {
-    display: 'flex',
-    flexDirection: 'row',
+    display: "flex",
+    flexDirection: "row"
   };
   const NavbarTitleStyle = {
-    color: 'white',
-    fontFamily: 'Georgia,Times,Times New Roman,serif',
-    fontStyle: 'italic',
-    fontSize: '1.4em',
+    color: "white",
+    fontFamily: "Georgia,Times,Times New Roman,serif",
+    fontStyle: "italic",
+    fontSize: "1.4em"
   };
   const logoStyle = {
-    fontSize: '1.6em',
+    fontSize: "1.6em"
   };
   const logoNameStyle = {
-    marginLeft: '10px',
+    marginLeft: "10px"
+  };
+  const sustainabilityScoreStyle = {
+    color: 'green',
   };
 
   return (
     <Router>
       <MDBNavbar color="default-color" dark expand="md">
-        <MDBNavbarBrand>
-          <div style={logoContainerStyle}>
-            <div style={logoStyle}>
-              <FontAwesomeIcon icon={faTruck} />
+        <MDBNavbarNav left>
+          <MDBNavbarBrand>
+            <div style={logoContainerStyle}>
+              <div style={logoStyle}>
+                <FontAwesomeIcon icon={faTruck} />
+              </div>
+              <div style={logoNameStyle}>
+                <strong style={NavbarTitleStyle}>GreenShip</strong>
+              </div>
             </div>
-            <div style={logoNameStyle}>
-            <strong style={NavbarTitleStyle}>GreenShip</strong>
-            </div>
+          </MDBNavbarBrand>
+        </MDBNavbarNav>
+        <MDBNavbarNav right>
+          <div style={sustainabilityScoreStyle}>
+            <strong>50,000</strong>
+            <FontAwesomeIcon icon={faLeaf} />
           </div>
-        </MDBNavbarBrand>
+        </MDBNavbarNav>
       </MDBNavbar>
     </Router>
   );

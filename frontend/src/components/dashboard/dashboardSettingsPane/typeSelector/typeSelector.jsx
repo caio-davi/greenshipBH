@@ -6,21 +6,21 @@ import {
   MDBDropdownItem
 } from "mdbreact";
 
-const TypeSelectorComponent = (props) => {
+const TypeSelectorComponent = () => {
   const buttonContainerStyle = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     width: '25vw',
-  }
+  };
   const buttonStyle = {
-    width: '180px',
-  }
+    width: '200px',
+  };
 
   return (
     <div style={buttonContainerStyle}>
       <MDBDropdown>
-        <MDBDropdownToggle style={buttonStyle} caret color="primary">
+        <MDBDropdownToggle style={buttonStyle} caret color="default">
           Type
         </MDBDropdownToggle>
         <MDBDropdownMenu basic>

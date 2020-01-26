@@ -3,15 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeaf } from '@fortawesome/free-solid-svg-icons';
 
 const CompanyRowComponent = (props) => {
-  const bakerHughesPath = 'https://i.imgur.com/meDIWmg.jpg';
-  const tamuPath = 'https://i.imgur.com/sJgdrcz.jpg';
-  const tuPath = 'https://i.imgur.com/tkSy51Y.jpg';
-  
   const companyRowStyle = {
     display: 'flex',
     flexDirection: 'row',
+    cursor: 'pointer',
     marginTop: '20px',
-    width: '80%',
+    width: '90%',
     height: '175px',
     backgroundColor: '#FFFFFF',
     fontSize: '1.1em',
@@ -53,7 +50,7 @@ const CompanyRowComponent = (props) => {
     fontStyle: 'italic',
   };
   const sustainabilityScoreStyle = {
-    color: 'green',
+    color: '#81BB2B',
   };
 
   return (
