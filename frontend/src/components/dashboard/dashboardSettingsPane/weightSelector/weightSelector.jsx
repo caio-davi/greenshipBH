@@ -12,7 +12,7 @@ const WeightSelectorComponent = () => {
     width: '180px',
   }
 
-  const [selectedWeight, setWeight] = React.useState('');
+  const [selectedWeight, setWeight] = React.useState(0);
 
   return (
     <div style={weightSelectorStyle}>
