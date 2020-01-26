@@ -25,6 +25,25 @@ const ApprovalsComponent = () => {
         companyLocationTo={'College Station, TX'}
         deliveryDate={'1/25/20'}
         sustainabilityScore={'366'}
+        approved={true}
+      />
+      <ApprovalsRowComponent
+        companyLogo={tuPath}
+        companyName={'t.u.'}
+        companyLocationFrom={'San Antonio, TX'}
+        companyLocationTo={'Austin, TX'}
+        deliveryDate={'1/25/20'}
+        sustainabilityScore={'288'}
+        approved={false}
+      />
+      <ApprovalsRowComponent
+        companyLogo={bhPath}
+        companyName={'Baker Hughes'}
+        companyLocationFrom={'Dallas, TX'}
+        companyLocationTo={'Houston, TX'}
+        deliveryDate={'1/25/20'}
+        sustainabilityScore={'589'}
+        approved={true}
       />
     </div>
   );
