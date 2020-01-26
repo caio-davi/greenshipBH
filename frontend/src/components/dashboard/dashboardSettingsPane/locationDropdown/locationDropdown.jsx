@@ -17,6 +17,16 @@ const LocationDropdownComponent = (props) => {
     width: '180px',
   }
 
+  const options = () => {
+    let options = [];
+    for(let i in props.places){
+      options.push(
+        <MDBDropdownItem onClick={() => props.title==='from' ? props.setFrom(props.places[i]): props.setTo(props.places[i])} >{props.places[i]}</MDBDropdownItem>
+      )
+    }
+    return options;
+  }
+
   return (
     <div style={buttonContainerStyle}>
       <MDBDropdown>
@@ -24,11 +34,7 @@ const LocationDropdownComponent = (props) => {
           {props.title}
         </MDBDropdownToggle>
         <MDBDropdownMenu basic>
-          <MDBDropdownItem>Action</MDBDropdownItem>
-          <MDBDropdownItem>Another Action</MDBDropdownItem>
-          <MDBDropdownItem>Something else here</MDBDropdownItem>
-          <MDBDropdownItem divider />
-          <MDBDropdownItem>Separated link</MDBDropdownItem>
+          {options()}
         </MDBDropdownMenu>
       </MDBDropdown>
     </div>

@@ -6,7 +6,7 @@ import {
   MDBDropdownItem
 } from "mdbreact";
 
-const TypeSelectorComponent = () => {
+const TypeSelectorComponent = (props) => {
   const buttonContainerStyle = {
     display: 'flex',
     flexDirection: 'column',

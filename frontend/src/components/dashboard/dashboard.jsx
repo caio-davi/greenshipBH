@@ -2,7 +2,7 @@ import React from "react";
 import DashboardSettingsPaneComponent from "./dashboardSettingsPane/dashboardSettingsPane";
 import DashboardBodyComponent from "./dashboardBody/dashboardBody";
 
-const DashboardComponent = () => {
+const DashboardComponent = (props) => {
   const dashboardContainerStyle = {
     display: 'flex',
     flexDirection: 'row',
@@ -13,7 +13,7 @@ const DashboardComponent = () => {
 
   return (
     <div style={dashboardContainerStyle}>
-      <DashboardSettingsPaneComponent />
+      <DashboardSettingsPaneComponent {...props} />
       <DashboardBodyComponent />
     </div>
   );
