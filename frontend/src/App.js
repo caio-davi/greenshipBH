@@ -10,14 +10,41 @@ const App = () => {
   const [ships, setShips] = React.useState('');
   const [displayedShips, setDisplayedShips] = React.useState([]);
 
+  const filterShips = () =>{
+    let filteredShips = []
+    for(let i in ships){
+      const ship =ships[i];
+      if(from != '' && ship.origin.city === from){
+        filteredShips.push(ship);
+      }
+      if(to != '' && ship.destination.city === to){
+        filteredShips.push(ship);
+      }
+    }
+    setDisplayedShips(filteredShips);
+  };
+
+  const handleFrom = (place) =>{
+    filterShips();
+    setFrom(place);
+  }
+  
+  const handleTo = (place) =>{
+    filterShips();
+    setTo(place);
+  }
+
   React.useEffect(() => {
     const fetchData = async () => {
       const shipsResponse = await fetch("ships");
       const shipsContents = await shipsResponse.json();
+      setDisplayedShips(shipsContents.data);
       setShips(shipsContents.data);
     };
     fetchData();
   }, []);
+
+  console.log(displayedShips)
 
   return (
     <div>
@@ -25,9 +52,10 @@ const App = () => {
       <DashboardComponent 
         places={places}
         from={from}
-        setFrom={setFrom}
+        handleFrom={handleFrom}
         to={to}
-        setTo={setTo}
+        handleTo={handleTo}
+        displayedShips={displayedShips}
         />
     </div>
   );

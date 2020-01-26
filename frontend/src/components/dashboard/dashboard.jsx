@@ -14,7 +14,7 @@ const DashboardComponent = (props) => {
   return (
     <div style={dashboardContainerStyle}>
       <DashboardSettingsPaneComponent {...props} />
-      <DashboardBodyComponent />
+      <DashboardBodyComponent {...props} />
     </div>
   );
 };
