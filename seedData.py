@@ -130,7 +130,7 @@ def get_distance(origin, destination):
     return costs[order(origin, destination)]['distance']
 
 def get_depart_time():
-    return datetime(2020, 1, randrange(20, 32), hour=randrange(0, 24), minute=randrange(0, 60), second=0, microsecond=0, tzinfo=None)
+    return datetime(2020, 1, randrange(26, 32), hour=randrange(0, 24), minute=randrange(0, 60), second=0, microsecond=0, tzinfo=None)
 
 def get_arrival_time(depart_time, duration):
     return depart_time + timedelta(minutes=duration)
@@ -166,6 +166,7 @@ def shipGenerator():
         },
         "fullCargo":randrange(0,2),
         "sustainabilityScore": score(distance, duration),
+        "stage":0,   
     })
 
 def print_samples(n_samples):

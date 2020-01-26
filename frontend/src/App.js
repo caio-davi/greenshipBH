@@ -8,13 +8,15 @@ import ApprovalsComponent from './components/approvals/approvals';
 
 const App = () => {
 
+  const truckTypes = ['Lowboy Trailer', 'Refrigerated Trailers', 'Flatbed Truck']
   const places = ['Austin', 'College Station', 'Dallas', 'Houston', 'San Antonio'];
   const [from, setFrom] = React.useState('');
   const [to, setTo] = React.useState(''); 
   const [ships, setShips] = React.useState('');
   const [displayedShips, setDisplayedShips] = React.useState([]);
-  const [spawnModal, toggleSpawnModal] = React.useState(false);
- 
+  const [spawnModal, setSpawnModal] = React.useState(false);
+  const [selectedShip, setSelectedShip] = React.useState(false); 
+
   const filterShips = (place_from, place_to) => {
     let filteredShips = []
     for(let i in ships){
@@ -38,8 +40,13 @@ const App = () => {
     filterShips(from, place);
   }
 
-  const handleToggleModal = (val) => {
-    toggleSpawnModal(!val);
+  const toggleModal = () => {
+    setSpawnModal(!spawnModal);
+  }
+
+  const handleSelectedShip = (id) => {
+    setSelectedShip(id);
+    toggleModal();
   }
 
   React.useEffect(() => {
@@ -56,7 +63,7 @@ const App = () => {
   return (
     <div>
       <ConfirmationModalComponent
-        handleToggleModal={handleToggleModal}
+        toggleModal={toggleModal}
       />
       <NavbarComponent />
       <Switch>
@@ -71,6 +78,7 @@ const App = () => {
             to={to}
             handleTo={handleTo}
             displayedShips={displayedShips}
+            handleSelectedShip={handleSelectedShip}
             />
             )}
           />
