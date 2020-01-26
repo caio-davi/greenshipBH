@@ -52,13 +52,6 @@ const App = () => {
     fetchData();
   }, []);
 
-  const PendingComponent = () => {
-    return (
-      <div>
-        TODO!!
-      </div>
-    )
-  }
 
   return (
     <div>
@@ -69,44 +62,32 @@ const App = () => {
       <Switch>
         <Route
         exact
-              path="/"
-              render={props => (
-                <DashboardComponent 
-                places={places}
-                from={from}
-                handleFrom={handleFrom}
-                to={to}
-                handleTo={handleTo}
-                displayedShips={displayedShips}
-                />
-                )}
-      {/* <DashboardComponent 
-        places={places}
-        from={from}
-        handleFrom={handleFrom}
-        to={to}
-        handleTo={handleTo}
-        displayedShips={displayedShips}
-        />
-    </div> */}
-      {/* <PendingComponent /> */}
-      <ApprovalsComponent />
+          path="/"
+          render={props => (
+            <DashboardComponent 
+            places={places}
+            from={from}
+            handleFrom={handleFrom}
+            to={to}
+            handleTo={handleTo}
+            displayedShips={displayedShips}
+            />
+            )}
+          />
         <Route
-              path="/pending"
-              render={props => (
-                <PendingComponent
-                />
-                )}
+          path="/pending"
+          render={props => (
+            <PendingComponent
+            />
+            )}
         />
         <Route
-              path="/approvals"
-              render={props => (
-                <PendingComponent
-                />
-                )}
+          path="/approvals"
+          render={props => (
+            <ApprovalsComponent />
+            )}
         />
-
-              </Switch>
+      </Switch>
       
     </div>
   );
