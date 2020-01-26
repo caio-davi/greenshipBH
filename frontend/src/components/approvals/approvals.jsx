@@ -1,7 +1,7 @@
 import React from "react";
 import ApprovalsRowComponent from "./approvalsRow/approvalsRow";
 
-const ApprovalsComponent = () => {
+const ApprovalsComponent = (props) => {
   const approvalsContainerStyle = {
     display: 'flex',
     flexDirection: 'column',
@@ -16,35 +16,44 @@ const ApprovalsComponent = () => {
   const tamuPath = 'https://i.imgur.com/sJgdrcz.jpg';
   const bhPath = 'https://i.imgur.com/meDIWmg.jpg';
 
+  const rows = () => {
+    let companyRows = [];
+      for(let i in props.ships){
+        let ship = props.ships[i];
+        let logoPath = '';
+        switch (ship.owner.company) {
+          case 't.u.': {
+            logoPath = tuPath;
+            break;
+          }
+          case 'Texas A&M University': {
+            logoPath = tamuPath;
+            break;
+          }
+          case 'Baker Hughes':
+          default: {
+            logoPath = bhPath
+            break;
+          }
+        }
+        companyRows.push(
+          <ApprovalsRowComponent
+          companyLogo={logoPath}
+          companyName={ship.owner.company}
+          companyLocationFrom={ship.origin.city}
+          companyLocationTo={ship.destination.city}
+          deliveryDate={ship.departureTime}
+          sustainabilityScore={ship.sustainabilityScore}
+          approved={true}
+        />
+        );
+      }
+      return companyRows;
+  };
+
   return (
     <div style={approvalsContainerStyle}>
-      <ApprovalsRowComponent
-        companyLogo={tamuPath}
-        companyName={'Texas A&M University'}
-        companyLocationFrom={'San Antonio, TX'}
-        companyLocationTo={'College Station, TX'}
-        deliveryDate={'1/25/20'}
-        sustainabilityScore={'366'}
-        approved={true}
-      />
-      <ApprovalsRowComponent
-        companyLogo={tuPath}
-        companyName={'t.u.'}
-        companyLocationFrom={'San Antonio, TX'}
-        companyLocationTo={'Austin, TX'}
-        deliveryDate={'1/25/20'}
-        sustainabilityScore={'288'}
-        approved={false}
-      />
-      <ApprovalsRowComponent
-        companyLogo={bhPath}
-        companyName={'Baker Hughes'}
-        companyLocationFrom={'Dallas, TX'}
-        companyLocationTo={'Houston, TX'}
-        deliveryDate={'1/25/20'}
-        sustainabilityScore={'589'}
-        approved={true}
-      />
+      {rows()}
     </div>
   );
 };

@@ -19,8 +19,8 @@ const ConfirmationModalComponent = (props) => {
           Confirm??
         </MDBModalBody>
         <MDBModalFooter>
-          <MDBBtn color="warning">Close</MDBBtn>
-          <MDBBtn color="default" onClick={() => props.goToPending(props.ship.shipNumber)}>Save changes</MDBBtn>
+          <MDBBtn color="warning" onClick={() => props.toggleModal()}>Close</MDBBtn>
+          <MDBBtn color="default" onClick={() => props.goToPending(props.ship.shipNumber)}>Request Ship</MDBBtn>
         </MDBModalFooter>
       </MDBModal>
     </MDBContainer>

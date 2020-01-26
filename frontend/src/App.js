@@ -82,6 +82,16 @@ const App = () => {
     return pendings;
   }
 
+  const getAproved = () => {
+    let pendings = [];
+    for(let i in ships){
+      if(ships[i].stage === 2){
+        pendings.push(ships[i]);
+      }
+    }
+    return pendings;
+  }
+
   const rejectPending = (id) => {
     for(let i in ships){
       if(ships[i].shipNumber === id){
@@ -142,7 +152,7 @@ const App = () => {
                 aprovePending={aprovePending}
                 rejectPending={rejectPending}
             />} />
-        <Route path="/approvals" render={props => <ApprovalsComponent />} />
+        <Route path="/approvals" render={props => <ApprovalsComponent  ships={getAproved()}/>} />
       </Switch>
     </div>
   );
