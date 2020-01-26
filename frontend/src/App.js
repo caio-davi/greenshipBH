@@ -45,8 +45,17 @@ const App = () => {
   }
 
   const handleSelectedShip = (id) => {
-    setSelectedShip(id);
+    console.log('here');  
+    setSelectedShip(getShipById(id));
     toggleModal();
+  }
+
+  const getShipById = (id) => {
+    for(let i in ships){
+      if(ships[i].shipNumber === id){
+        return ships[i];
+      }
+    }
   }
 
   React.useEffect(() => {
@@ -65,6 +74,7 @@ const App = () => {
       <ConfirmationModalComponent
         spawnModal={spawnModal}
         toggleModal={toggleModal}
+        ship={selectedShip}
       />
       <NavbarComponent />
       <Switch>

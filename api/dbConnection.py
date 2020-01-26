@@ -3,7 +3,7 @@ import pymongo
 
 def get_db():
     if 'db' not in g:
-        client = pymongo.MongoClient("mongodb://172.21.0.3/greenship_db?authSource=admin")
+        client = pymongo.MongoClient("mongodb://172.21.0.2/greenship_db?authSource=admin")
         g.db = client.greenship_db
     return g.db
 

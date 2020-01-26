@@ -60,7 +60,7 @@ const CompanyRowComponent = props => {
   };
 
   return (
-    <div style={companyRowStyle}>
+    <div style={companyRowStyle} onClick={() => props.handleSelectedShip(props.shipNumber)}>
       <div style={logoContainerStyle}>
         <img src={props.companyLogo} alt={"companyLogo"} />
       </div>
