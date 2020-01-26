@@ -18,7 +18,8 @@ const DashboardBodyComponent = (props) => {
         <CompanyRowComponent
           companyLogo={"test.jpg"}
           companyName={ship.origin.company}
-          companyLocation={ship.destination.city}
+          companyLocationFrom={ship.origin.city}
+          companyLocationTo={ship.destination.city}
           deliveryDate={ship.departureTime}
           sustainabilityScore={ship.distance+ship.duration}
       />

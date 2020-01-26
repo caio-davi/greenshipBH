@@ -62,7 +62,7 @@ const CompanyRowComponent = (props) => {
             {props.companyName}
           </div>
           <div style={subheadingStyle}>
-            {props.companyLocation}  
+            {props.companyLocationFrom} -> {props.companyLocationTo} 
           </div>
         </div>
       </div>
