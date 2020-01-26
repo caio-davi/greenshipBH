@@ -3,6 +3,8 @@ import NavbarComponent from './components/navbar/navbar';
 import DashboardComponent from './components/dashboard/dashboard';
 import ConfirmationModalComponent from './components/modals/confirmationModal/confirmationModal';
 import { Switch , Route } from "react-router-dom";
+import PendingComponent from './components/pending/pending';
+import ApprovalsComponent from './components/approvals/approvals';
 
 const App = () => {
 
@@ -78,7 +80,17 @@ const App = () => {
                 displayedShips={displayedShips}
                 />
                 )}
+      {/* <DashboardComponent 
+        places={places}
+        from={from}
+        handleFrom={handleFrom}
+        to={to}
+        handleTo={handleTo}
+        displayedShips={displayedShips}
         />
+    </div> */}
+      {/* <PendingComponent /> */}
+      <ApprovalsComponent />
         <Route
               path="/pending"
               render={props => (
