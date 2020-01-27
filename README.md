@@ -1,7 +1,12 @@
-# greenshipBH
-Project for tamuhack2020
+# Greenship
 
+GreenShip functions as an application for ride-sharing freight of raw materials between suppliers and customers. The application is supposed to encourage companies to combine shipments if there is empty space on one of their trucks.
+This project was created during [TAMUHACK2020](https://tamuhack.com/).
 
+### TAMUHACK2020:
+
+- 3rd Best Project Overall. 
+- Winner of the Baker Hughes's Taking Energy Forward Challenge.
 
 ## Getting Started
 
